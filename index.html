@@ -3,18 +3,63 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </header>
 <body>
+<div id="app-7">
+    <h2>Custom</h2>
+    <p>Những thứ họ mua:</p>
+    <ol>
+        <!--
+          Ở đây chúng ta cung cấp một object "todo" cho mỗi component
+          "todo-item". Bằng cách này nội dung của từng component trở nên động.
+          Mỗi component cũng sẽ nhận một thuộc tính "key". Chúng ta sẽ
+          nói thêm về thuộc tính này sau.
+        -->
+        <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+        </todo-item>
+
+    </ol>
+
+    <h2>Custome</h2>
+</div>
+<div id ="app-7a">
 
 <ol>
-    <!-- Tạo một đối tượng của component todo-item -->
-    <todo-item></todo-item>
+    <common></common>
 </ol>
-
+</div>
 
 <script>
-    var app5 = new Vue;
-    // Định nghĩa một component todo-item
-    app5.component('todo-item', {
-        template: '<li>Đây là một đề mục todo</li>'
+    Vue.component('common', {
+        template: '<li>common-content</li>'
+    })
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+
+    var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+                { id: 0, text: 'Cà pháo' },
+                { id: 1, text: 'Mắm tôm' },
+                { id: 2, text: 'Miễn ăn được là được' }
+            ]
+        }
+    })
+
+    var app7a = new Vue({
+        el: '#app-7a',
+        data: {
+            groceryList: [
+                { id: 0, text: 'Cà pháo' },
+                { id: 1, text: 'Mắm tôm' },
+                { id: 2, text: 'Miễn ăn được là được' }
+            ]
+        }
     })
 </script>
 </body>
