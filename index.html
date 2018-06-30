@@ -3,17 +3,35 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </header>
     <body>
-
+        <h2>Lesson 2</h2>
         <div id="app">
             {{ message }}
         </div>
+        <hr>
+        <h2>Lesson 2</h2>
+        <div id="app-2">
+              <span v-bind:title="message">
+                Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+              </span>
+        </div>
+
         <script>
+            // Lesson 1
             var app = new Vue({
                 el: '#app',
                 data: {
                     message: 'Do you wanna build a Vue app?'
                 }
             })
+
+            // Lesson 2
+            var app2 = new Vue({
+                el: '#app-2',
+                data: {
+                    message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()
+                }
+            })
+            
         </script>
     </body>
 
