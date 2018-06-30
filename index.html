@@ -14,6 +14,11 @@
                 Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
               </span>
         </div>
+        <hr>
+        <h2>Lesson 3</h2>
+        <div id="app-3">
+            <span v-if="seen">Thoắt ẩn thoắt hiện</span>
+        </div>
 
         <script>
             // Lesson 1
@@ -31,7 +36,13 @@
                     message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()
                 }
             })
-            
+            // Lesson 3
+            var app3 = new Vue({
+                el: '#app-3',
+                data: {
+                    seen: true
+                }
+            })
         </script>
     </body>
 
