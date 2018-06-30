@@ -1,0 +1,21 @@
+<html>
+<header>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</header>
+<body>
+
+<ol>
+    <!-- Tạo một đối tượng của component todo-item -->
+    <todo-item></todo-item>
+</ol>
+
+
+<script>
+    var app5 = new Vue;
+    // Định nghĩa một component todo-item
+    app5.component('todo-item', {
+        template: '<li>Đây là một đề mục todo</li>'
+    })
+</script>
+</body>
+</html>
