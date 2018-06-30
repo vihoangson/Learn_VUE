@@ -3,7 +3,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </header>
     <body>
-        <h2>Lesson 2</h2>
+        <h2>Lesson 1</h2>
         <div id="app">
             {{ message }}
         </div>
@@ -19,8 +19,19 @@
         <div id="app-3">
             <span v-if="seen">Thoắt ẩn thoắt hiện</span>
         </div>
+        <hr>
+        <h2>Lesson 4</h2>
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
 
         <script>
+
+            
             // Lesson 1
             var app = new Vue({
                 el: '#app',
@@ -29,18 +40,32 @@
                 }
             })
 
+            
             // Lesson 2
             var app2 = new Vue({
                 el: '#app-2',
                 data: {
-                    message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()
+                    message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()                    
                 }
             })
+            
             // Lesson 3
             var app3 = new Vue({
                 el: '#app-3',
                 data: {
                     seen: true
+                }
+            })
+            
+            // Lesson 4
+            var app4 = new Vue({
+                el: '#app-4',
+                data: {
+                    todos: [
+                        { text: 'Học JavaScript' },
+                        { text: 'Học Vue' },
+                        { text: 'Xây dựng cái gì đó hay ho' }
+                    ]
                 }
             })
         </script>
