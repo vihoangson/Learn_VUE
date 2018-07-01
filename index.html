@@ -1,0 +1,55 @@
+<html>
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </header>
+    <body>
+
+        <div id="app">
+            <h2>v-html and v-bind</h2>
+            <span v-bind:id="id_span" v-html="message"></span>
+
+            <h2>error_message</h2>
+            {{error_message}}
+
+            <h2>error_message string</h2>
+            {{'error_message'}}
+
+            <h2>Toán tử</h2>
+            {{value_number + 2}}
+
+        </div>
+        <script>
+            /**
+             *
+             * Nội dung bài này về template
+             *
+             *
+             * v-html
+             * {}
+             * v-bind:{}
+             *
+             * ---
+             * ## Sử dụng các biểu thức JavaScript
+             * EX:
+             * {{ number + 1 }}
+             * {{ ok ? 'YES' : 'NO' }}
+             * {{ message.split('').reverse().join('') }}
+             * <div v-bind:id="'list-' + id"></div>
+             *
+             * ---
+             *
+             */
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Do you wanna build a Vue app?',
+                    error_message:'error_message string',
+                    value_number:1,
+                    id_span: 'this-is-id'
+                }
+            })
+        </script>
+    </body>
+
+</html>
