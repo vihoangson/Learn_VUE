@@ -4,11 +4,61 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </header>
     <body>
+        <h2>example1</h2>
         <div id="app">
+            <div id="example">
+                <p>Thông điệp ban đầu: "{{ message }}"</p>
+                <p>Thông điệp bị đảo ngược bằng tính toán (computed): "{{ reversedMessage }}"</p>
 
+                <p>Thông điệp bị đảo ngược: "{{ doSomething() }}"</p>
+
+            </div>
         </div>
-        <script>
+        <h2>example2 - computed_get_set</h2>
+        <div id="app2">
+            <div id="example2">
+                <p>Thông điệp bị đảo ngược bằng tính toán (computed) computed_get_set: "{{ computed_get_set }}"</p>
 
+            </div>
+        </div>
+
+
+        <script>
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    message: 'người đông bến đợi thuyền xuôi ngược'
+                },
+                computed: {
+                    // một computed getter
+                    reversedMessage: function () {
+                        // `this` trỏ tới đối tượng vm
+                        return this.message.split(' ').reverse().join(' ')
+                    }
+                },
+                methods: {
+                    doSomething:function(){
+                        return this.message.split(" ").reverse().join("+");
+                    }
+                }
+            })
+
+            var vm2 = new Vue({
+                el: '#example2',
+                data: {
+                    message: 'người đông bến đợi thuyền xuôi ngược'
+                },
+                computed: {
+                    'computed_get_set':{
+                        get: function(){
+                            return this.message+"__";
+                        },
+                        set: function(){
+                            this.message = 'renew'
+                        }
+                    }
+                },
+            })
         </script>
     </body>
 
