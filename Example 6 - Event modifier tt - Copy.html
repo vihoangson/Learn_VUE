@@ -1,0 +1,46 @@
+<html>
+<header>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</header>
+<body>
+
+
+  <div  id='body'>
+
+    <!-- Alt + C -->
+    <input @keyup.alt.67="clear">
+
+    <!-- Cmd + Click -->
+    <div @click.meta="openNewTab">Mở tab mới</div>
+
+    
+    <!-- onClick vẫn sẽ được gọi nếu người dùng nhấn thêm phím Alt hoặc Shift -->
+    <button @click.ctrl="onClick">A</button>
+
+    <!-- onClick chỉ được gọi nếu chỉ phím Ctrl được nhấn -->
+    <button @click.ctrl.exact="onCtrlClick">A</button>
+
+    <!-- this will only fire when no system modifiers are pressed -->
+    <button @click.exact="onClick">A</button>
+</div>
+
+
+<script>
+    new Vue({
+      el:'#body',
+      methods:({
+        openNewTab:function(){
+          alert('do function openNewTab);
+      },
+      clear:function(){
+          alert('do function clear);
+      }
+
+  })
+
+      })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+<header>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</header>
+<body>
+
+
+<!--
+  sự kiện click sẽ không được propagate (lan truyền)
+  điều này tương đương với event.stopPropagation()
+-->
+<a v-on:click.stop="doThis"></a>
+
+<!--
+  sự kiện submit sẽ không reload trang
+  điều này tương đương với event.preventDefault()
+-->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- ta có thể nối modifier với nhau -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- chỉ có modifier, không có phương thức xử lí -->
+<form v-on:submit.prevent></form>
+
+<!--
+  dùng "capture mode" khi thêm event listener
+  nghĩa là một sự kiện xảy ra với một phần tử bên trong sẽ được xử lí ở đây
+  trước khi được xử lí bởi phần tử đó
+  đọc thêm về event capturing: https://javascript.info/bubbling-and-capturing#capturing
+-->
+<div v-on:click.capture="doThis">...</div>
+
+<!--
+  chỉ kích hoạt phương thức xử lí nếu event.target là chính phần tử được click,
+  chứ không phải là một phần tử con
+-->
+<div v-on:click.self="doThat">...</div>
+
+
+  <script>
+
+  </script>
+  </body>
+
+  </html>

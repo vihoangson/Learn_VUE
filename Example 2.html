@@ -1,0 +1,35 @@
+<html>
+<header>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</header>
+<body>
+
+  <div id="example-2">
+    <!-- `greet` là tên của phương thức bạn muốn gọi -->
+    <button v-on:click="greet">Chào mừng</button>
+  </div>
+
+
+  <script>
+    var example2 = new Vue({
+      el: '#example-2',
+      data: {
+        name: 'Vue.js'
+      },
+  // định nghĩa phương thức trong object `methods`
+  methods: {
+    greet: function (event) {
+      // bên trong một phương thức, `this` trỏ đến đối tượng Vue
+      alert('Xin chào ' + this.name + '!')
+      // `event` là sự kiện DOM native
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+</script>
+</body>
+
+</html>
