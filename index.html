@@ -1,27 +1,58 @@
 <html>
-    <header>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    </header>
-    <body>
-        <div id="app">
-            <h1 v-if="ok">Mọi việc ổn cả</h1>
-            <h1 v-if="nook">Mọi việc không ổn</h1>
-            <hr>
-            <h1 v-if="ok">Mọi việc ổn cả</h1>
-            <h1 v-else>Có gì đó sai sai</h1>
-            <hr>
-
+<header>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</header>
+<body>
+    <div id="app">
+        <h1 v-if="ok">Mọi việc ổn cả</h1>
+        <h1 v-if="nook">Mọi việc không ổn</h1>
+        <hr>
+        <h1 v-if="ok">Mọi việc ổn cả</h1>
+        <h1 v-else>Có gì đó sai sai</h1>
+        <hr>
+        <div v-if="Math.random() > 0.5">
+            Tài
         </div>
-        <script>
-            var vm = new Vue({
-                el:"#app",
-                data:{
-                    ok: true,
-                    'nook':false
-                }
-            })
-        </script>
-    </body>
+        <div v-else>
+            Xỉu
+        </div>
+        <hr>
+        <div v-if="type === 'A'">A</div>
+        <div v-else-if="type === 'B'">B</div>
+        <div v-else-if="type === 'C'">C</div>
+        <div v-else-if="type === 'D'">D</div>
+        <div v-else>Chiến Sĩ không thể nhớ nổi</div>
+        <hr>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Nhập username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Nhập địa chỉ email">
+        </template>
+        <hr>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Nhập username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Nhập địa chỉ email" key="email-input">
+        </template>
+        <hr>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                ok: true,
+                'nook':false,
+                loginType :'username'
+            }
+        })
+    </script>
+</body>
 
 </html>
