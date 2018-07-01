@@ -1,43 +1,29 @@
 <html>
     <header>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </header>
     <body>
 
-        <div id="app">
+        <div id="app" class="container">
             <h2>v-html and v-bind</h2>
             <span v-bind:id="id_span" v-html="message"></span>
 
-            <h2>error_message</h2>
-            {{error_message}}
+            <h2>v-if</h2>
+            <span v-if="thay">Thay cai nay khong</span>
 
-            <h2>error_message string</h2>
-            {{'error_message'}}
+            <h2>v-do</h2>
+            <button class="btn btn-default" v-on:click="do_click">button v-do</button>
 
-            <h2>Toán tử</h2>
-            {{value_number + 2}}
+            <h2>v-do rút gọn</h2>
+            <a class="form-control" @click="do_click_rutgon">v-do rút gọn</a>
+
+            <h2>v-bind rút gọn</h2>
+            <a class="form-control" :href="link_bind">v-bind rút gọn</a>
 
         </div>
         <script>
             /**
-             *
-             * Nội dung bài này về template
-             *
-             *
-             * v-html
-             * {}
-             * v-bind:{}
-             *
-             * ---
-             * ## Sử dụng các biểu thức JavaScript
-             * EX:
-             * {{ number + 1 }}
-             * {{ ok ? 'YES' : 'NO' }}
-             * {{ message.split('').reverse().join('') }}
-             * <div v-bind:id="'list-' + id"></div>
-             *
-             * ---
-             *
              */
 
             var app = new Vue({
@@ -46,7 +32,15 @@
                     message: 'Do you wanna build a Vue app?',
                     error_message:'error_message string',
                     value_number:1,
-                    id_span: 'this-is-id'
+                    id_span: 'this-is-id',
+                    thay: true,
+                    link_bind:'#/home',
+                    do_click:function(){
+                        alert('do_click');
+                    },
+                    do_click_rutgon:function(){
+                        alert('do_click_rutgon')
+                    }
                 }
             })
         </script>
