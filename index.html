@@ -5,10 +5,19 @@
     </header>
     <body>
         <div id="app">
-
+            <div class="static"
+                 v-bind:class="{ active: isActive, 'text-danger': hasError }">
+                asdf
+            </div>
         </div>
         <script>
-
+            var vm = new Vue({
+                el:'#app',
+                data: {
+                    isActive: true,
+                    hasError: true
+                }
+            })
         </script>
     </body>
 
