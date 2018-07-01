@@ -1,15 +1,115 @@
 <html>
-    <header>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    </header>
-    <body>
-        <div id="app">
+<header>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</header>
+<body>
+    <div id="app">
+        <h1> v-for</h1>
+        <ul id="example-1">
+            <li v-for="item in items" >{{ item.name }}</li>            
+        </ul>
 
-        </div>
-        <script>
+        <h1> v-for and v-if</h1>
+        <ul id="example-2">
 
-        </script>
-    </body>
+            <li v-for="item in items" v-if='item.name == "name1"' style='color:red'>{{ item.name }}</li>
+        </ul>
+
+        <h1> Dùng với component</h1>
+        
+    </div>
+
+<div id="todo-list-example">
+  <input
+    v-model="newTodoText"
+    v-on:keyup.enter="addNewTodo"
+    placeholder="Thêm việc cần làm"
+  >
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+  </ul>
+</div>
+
+    <script>
+        Vue.component('my-component',{
+
+        });
+var vm = new Vue({
+    el: '#app',
+    data:{
+        items:[
+        {name: "name1"},
+        {name: "name2"},
+        {name: "name3"},
+        {name: "name4"},
+        {name: "name5"},
+
+        ]
+
+
+    }
+});
+vm.items.reverse();
+vm.items.push({name:'name6'});
+vm.items.pop();
+vm.items.shift();
+vm.items.unshift()
+        // vm.items.splice()
+        // vm.items.sort()
+        vm.items.reverse()
+
+Vue.component('todo-item', {
+  template: '\
+  <li>\
+  {{ title }}\
+  <button v-on:click="$emit(\'remove\')">X</button>\
+  </li>\
+  ',
+  props: ['title']
+})
+
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+    {
+        id: 1,
+        title: 'luộc khoai',
+    },
+    {
+        id: 2,
+        title: 'cùng chị giã gạo',
+    },
+    {
+        id: 3,
+        title: 'thổi cơm'
+    },
+    {
+        id: 4,
+        title: 'nhổ cỏ vườn'
+    }
+    ],
+    nextTodoId: 5
+},
+methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+    })
+      this.newTodoText = ''
+  }
+}
+})
+</script>
+</body>
 
 </html>
