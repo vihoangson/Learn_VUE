@@ -5,10 +5,22 @@
     </header>
     <body>
         <div id="app">
+            <h1 v-if="ok">Mọi việc ổn cả</h1>
+            <h1 v-if="nook">Mọi việc không ổn</h1>
+            <hr>
+            <h1 v-if="ok">Mọi việc ổn cả</h1>
+            <h1 v-else>Có gì đó sai sai</h1>
+            <hr>
 
         </div>
         <script>
-
+            var vm = new Vue({
+                el:"#app",
+                data:{
+                    ok: true,
+                    'nook':false
+                }
+            })
         </script>
     </body>
 
