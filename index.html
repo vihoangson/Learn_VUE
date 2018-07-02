@@ -20,6 +20,35 @@
                 </div>
             </nav>
 
+            <hr>
+            <div id='books'>
+                <div class="row">
+                    <div class='col-xs-4'>Menu
+
+                        <div class=""><button @click='isComment = true' class="btn btn-default"> Open comment</button></div>
+
+                    </div>
+                    <div class='col-xs-8'>
+                        <div v-for='book in books'>
+                            <div>{{book.title}}</div>
+                            <div>{{book.inStock | formatBook}}</div>
+                            <button @click='buyBook(book)' class="btn btn-default">Buy</button>
+                            <button @click='removeBook(book)' class="btn btn-default">Remove Book</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div v-if='isComment == true'>
+                <div>comment 1</div>
+                <div>comment 2</div>
+            </div>
+
+            <hr>
+
             <div v-if="!isShowingCart" id="products" class="row list-group">
                 <div v-for="product in products" class="item col-xs-4">
                     <div class="thumbnail">
