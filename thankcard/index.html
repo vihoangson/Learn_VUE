@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank card</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div  v-if='isListShow == true'>
+            <h1>List</h1>
+            <h2>Total like: {{total_like}}</h2>
+            
+            <h3>{{member_vote_list}}</h3>
+            <ul v-for='vote in membervote'>
+                <li>{{vote.member.name}}-{{vote.soluong}}</li>
+            </ul>
+
+
+            <div class="row">
+                <div v-for='member in books'>                    
+                    <div class="col-sx-4">
+                        <div class='alert alert-success'>{{member.name}}</div>
+                        <div class='alert alert-success'>{{member.like}}</div>
+                        <button class="btn btn-default" @click='doUnLike(member)'>UnLike</button>
+                        <button class="btn btn-default" @click='doLike(member)'>Like</button>
+                        <button class="btn btn-default" @click='doVote(member)'>Vote</button>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <h1>Detail</h1>
+
+        </div>
+
+        <button class='btn btn-primary' @click="isListShowControl(true)">Show list</button>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
