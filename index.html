@@ -32,6 +32,7 @@
                         <div v-for='book in books'>
                             <div>{{book.title}}</div>
                             <div>{{book.inStock | formatBook}}</div>
+                            <div>{{inTheStock | formatBook}}</div>
                             <button @click='buyBook(book)' class="btn btn-default">Buy</button>
                             <button @click='removeBook(book)' class="btn btn-default">Remove Book</button>
                         </div>
@@ -134,7 +135,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/vue.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
