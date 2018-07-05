@@ -49,11 +49,20 @@ new Vue({
             }
         ]
     },
+    computed:{
+        cartTotal:function(){
+            var total = 0;
+            this.cart.items.forEach(function(item){
+                total += item.quantity * item.product.price;
+            })
+            return total;
+        }
+    },
     methods:{
         addProductToCart: function(product){
             this.cart.items.push({
                 product:product,
-                quailty:1
+                quantity:1
             });
             product.inStock--;
         }
