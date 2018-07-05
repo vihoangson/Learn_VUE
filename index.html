@@ -38,7 +38,7 @@
                                     <div class="number-in-stock" v-bind:class="{few: product.inStock <10, none:product.inStock==0}">
                                         {{ product.inStock }} in stock
                                     </div>
-                                    <button class="btn btn-success" v-bind:disabled="product.inStock==0">Add to cart</button>
+                                    <button class="btn btn-success" @click='addProductToCart(product)' v-bind:disabled="product.inStock==0">Add to cart</button>
                                 </div>
                             </div>
                         </div>
