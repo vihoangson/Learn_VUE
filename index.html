@@ -5,7 +5,8 @@
     </header>
     <body>
         <div id="app">
-            {{strings}}
+            {{chu}}
+            <div @click='chgText' ref='btnRefs'>click here<a href='111' @click.prevent=''>don't click</a></div>
         </div>
     <script src="js/vue.js"></script>
     <script src="js/app.js"></script>

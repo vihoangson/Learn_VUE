@@ -1,15 +1,16 @@
 var data = {
     so: 1,
-    chu: "asdf"
+    chu: "chu string"
 }
 var vm = new Vue({
     el: '#app',
-    data: data
+    data: data,
+    methods:{
+        chgText:function(){
+            this.$refs.btnRefs.innerText = 111;
+            //console.log();
+        }
+    }
         
 });
-console.log(vm);
-console.log(vm.$data.so);
-console.log(vm.$data.so === data.so);
-console.log(vm.$data === data);
-
 
