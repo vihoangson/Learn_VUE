@@ -1,16 +1,16 @@
-var data = {
-    so: 1,
-    chu: "chu string"
-}
 var vm = new Vue({
-    el: '#app',
-    data: data,
-    methods:{
-        chgText:function(){
-            this.$refs.btnRefs.innerText = 111;
-            //console.log();
-        }
-    }
-        
+    template : `
+    <h1>template</h1>
+    <p>Content</p>
+    `,
+    data:{
+        message : "Hello world"
+    } 
 });
 
+//vm.$mount('#app');
+vm.$mount();
+
+console.log(vm.$el);
+
+document.getElementById('app').appendChild(vm.$el);
