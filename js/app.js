@@ -1,6 +1,7 @@
 new Vue({
     el: '#app',
     data: {
+        isShowCart:false,
         cart:{
             items:[]
         },
@@ -49,6 +50,19 @@ new Vue({
             }
         ]
     },
+    filters:{
+        currency:function(value){  
+        // Create our number formatter.
+        var formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          minimumFractionDigits: 0,
+
+        });
+
+        return formatter.format(value); /* $2,500.00 */          
+        }
+    },
     computed:{
         cartTotal:function(){
             var total = 0;
@@ -56,6 +70,9 @@ new Vue({
                 total += item.quantity * item.product.price;
             })
             return total;
+        },
+        tax_cart: function(){
+            return (this.cartTotal*10)/100;
         }
     },
     methods:{
