@@ -59,27 +59,27 @@
                     </tr>
                     <tr v-for='item in cart.items'>
                         <td>{{item.product.name}}</td>
-                        <td>{{item.product.price}}</td>
-                        <td>{{item.quantity}}</td>
-                        <td>{{item.quantity * item.product.price}}</td>
+                        <td>{{item.product.price | currency}}</td>
+                        <td>{{item.quantity}} <button @click="increateQuantity(item)" class='btn btn-success'>+</button> <button @click="decreateQuantity(item)" class='btn btn-danger'>-</button> </td>
+                        <td>{{item.quantity * item.product.price  | currency}}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td class='text-right'><b>Subtotal</b></td>
-                        <td>{{cartTotal}}</td>
+                        <td>{{cartTotal | currency}}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td class='text-right'><b>Tax</b></td>
-                        <td>{{tax_cart}}</td>
+                        <td>{{tax_cart | currency}}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td class='text-right'><b>Total</b></td>
-                        <td>{{tax_cart+cartTotal}}</td>
+                        <td>{{tax_cart+cartTotal | currency}}</td>
                     </tr>
                 </table>
                 <div v-else class='alert alert-danger'>

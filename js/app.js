@@ -76,6 +76,20 @@ new Vue({
         }
     },
     methods:{
+        increateQuantity: function(item){
+            if(item.product.inStock > 0){
+                item.quantity++;
+                item.product.inStock--;                
+            }
+
+        },
+        decreateQuantity: function(item){
+            if(item.quantity > 0){
+                item.quantity--;
+                item.product.inStock++;
+            }
+
+        },
         getItemCart: function(product){
 
             // Cách này không dùng được
