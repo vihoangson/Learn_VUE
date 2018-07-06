@@ -76,11 +76,38 @@ new Vue({
         }
     },
     methods:{
+        getItemCart: function(product){
+
+            // Cách này không dùng được
+            if(false){
+                this.cart.items.forEach(function(item){
+                    if(item.product.id === product.id){
+                        return item;
+                    }
+                });                
+            }
+
+            for(i=0;i<this.cart.items.length;i++){
+                if(this.cart.items[i].product.id === product.id){
+                    return this.cart.items[i];
+                }
+            }
+            return null;
+
+        },
         addProductToCart: function(product){
-            this.cart.items.push({
-                product:product,
-                quantity:1
-            });
+            var item = this.getItemCart(product);
+            
+            if(item == null){
+                this.cart.items.push({
+                    product:product,
+                    quantity:1
+                });                
+            }else{
+                item.quantity++;
+            }
+            //item.product.id;
+
             product.inStock--;
         }
     }
