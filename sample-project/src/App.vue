@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <thongbao></thongbao>
-    <component-whatwedo></component-whatwedo>
-  </div>
+	<div id="app">
+		<thongbao></thongbao>			
+		<component-whatwedo></component-whatwedo>
+	</div>
 </template>
 
 <script>
-export default {
-
+export default {	
 }
 </script>
 
