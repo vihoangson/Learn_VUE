@@ -15,8 +15,11 @@ new Vue({
 new Vue({
 	el: '#app3',
 	components:{
-		'my_component':{
+		my_component:{
 			template:`<h4>my_component_local<h4>`
+		},
+		'contactus':{
+			template:`<h4>my_component_local_naming_convention<h4>`
 		}
 	}
 });
