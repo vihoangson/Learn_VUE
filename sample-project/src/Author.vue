@@ -9,7 +9,13 @@
 
 <script>
 export default {
-	props:['varauthor'],
+	props:{
+		varauthor:{
+			type:Object,
+			required:true,
+			default:{}
+		}
+	},
 	data:function(){
 		return {
 			firstname:"Bo",

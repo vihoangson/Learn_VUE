@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1>{{author_data.firstname}}</h1>
-		<component-author :varauthor='author_data'></component-author>
+		<component-author :varauthor='son'></component-author>
 		
 <!-- Services section -->
 	<section id="what-we-do">
@@ -82,8 +82,8 @@ export default {
 		return {
 			son:1234,
 			author_data:{
-				firstname:'firstname_text',
-				lastname:'lastname_text',
+				firstname:'A',
+				lastname:'Nguyễn Văn',
 			}
 		} 		
 	},
