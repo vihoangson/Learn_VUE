@@ -4,9 +4,26 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </header>
     <body>
-        <div id="app">
-            {{varTest}}
+        <div class='container'>
+            <h1>Global Component</h1>
+            <div id="app1">
+                <my_component></my_component>
+            </div>
+            
+            <div id="app2">
+                <my_component></my_component>
+            </div>
+
+            <hr>
+
+            <h1>Local component</h1>
+            <div id="app3">
+                <my_component></my_component>
+            </div>
+
         </div>
+
+
     <script src="js/vue.js"></script>
     <script src="js/app.js"></script>
     </body>

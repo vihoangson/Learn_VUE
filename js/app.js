@@ -1,12 +1,22 @@
-var vm = new Vue({
-    el: '#app',
-    data: {
-        strings: ""
-    }
-        
+
+Vue.component('my_component',{
+	template:`
+	<h4>my_component_gobal<h4>
+	`
 });
 
-setTimeout(function(){
-    vm.strings = 'hello';
+new Vue({
+	el: '#app1'
+});
+new Vue({
+	el: '#app2'
+});
 
-},2000);
+new Vue({
+	el: '#app3',
+	components:{
+		'my_component':{
+			template:`<h4>my_component_local<h4>`
+		}
+	}
+});
