@@ -9,7 +9,8 @@
 
 <script>
 
-import Social from './Social.vue'
+	import Social from './Social.vue'
+	import {eventbus} from './main';
 
 export default {
 
@@ -22,6 +23,11 @@ export default {
 	},
 	components:{
 		'socialcomponent':Social
+	},
+	created: function(){
+		eventbus.$on('doshareEvent',function(event){
+			alert('Do event '+event.media+'!');
+		})
 	}
 
 }
