@@ -10,7 +10,7 @@ export default {
 	name: 'thongbao',
 	data () {
 		return {
-			msg: 'Day la thong bao'
+			msg: 'Component thongbao: Day la thong bao'
 		}
 	}
 }

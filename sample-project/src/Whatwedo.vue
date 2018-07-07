@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<component-author></component-author>
+		<h1>{{author_data.firstname}}</h1>
+		<component-author :varauthor='author_data'></component-author>
+		
 <!-- Services section -->
 	<section id="what-we-do">
 		<div class="container-fluid">
@@ -77,7 +79,13 @@ import Author from './Author.vue';
 export default {
 	name:'article',
 	data:function(){		
-		return {son:1234} 		
+		return {
+			son:1234,
+			author_data:{
+				firstname:'firstname_text',
+				lastname:'lastname_text',
+			}
+		} 		
 	},
 	components:{
 		'componentAuthor': Author

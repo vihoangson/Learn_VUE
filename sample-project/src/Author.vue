@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <div class="alert alert-danger">
-    	<small>Author: {{firstname}} {{lastname}}</small>
-    </div>
-    
-  </div>
+	<div>
+		<div class="alert alert-danger">
+			<small>Author: {{varauthor.firstname}} {{varauthor.lastname}}</small>
+		</div>
+
+	</div>
 </template>
 
 <script>
 export default {
+	props:['varauthor'],
 	data:function(){
 		return {
 			firstname:"Bo",
@@ -20,6 +21,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
+* {
+	color:black;
+}
+
+</style>
+<style scoped>
+* {
+	color:#aaa;
+}
 
 </style>
