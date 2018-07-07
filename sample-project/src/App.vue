@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <thongbao></thongbao>
+    <component-whatwedo></component-whatwedo>
   </div>
 </template>
 

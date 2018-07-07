@@ -1,7 +1,6 @@
 <template>
 	<div >
-		<div class="alert alert-success">{{msg}}</div>
-		<div class='adfaf'>ádfdsf</div>
+		<div class="alert alert-success">{{msg}}</div>		
 	</div>
 
 </template>
