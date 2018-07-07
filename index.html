@@ -4,9 +4,28 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </header>
     <body>
-        <div id="app">
-            {{varTest}}
+    <div id="app" class='container'>
+        <div>
+            <h1>
+                Biến nằm trong từng component
+            </h1>
+            <couter></couter>
+            <couter></couter>
+            <couter></couter>
         </div>
+        
+        <hr>
+        
+        <div>
+            <h1>
+                Biến nằm ngoài component
+            </h1>
+            <couter_data_out></couter_data_out>
+            <couter_data_out></couter_data_out>
+            <couter_data_out></couter_data_out>
+        </div>
+        
+    </div>
     <script src="js/vue.js"></script>
     <script src="js/app.js"></script>
     </body>
