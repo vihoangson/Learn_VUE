@@ -4,6 +4,10 @@
 
 		<p>Shares: {{ shares }}</p>
 		<socialcomponent :article='$data' @shareEvent='shares++'></socialcomponent>
+		<slot>
+			<div class="alert alert-info">this is slot</div>
+		</slot>
+		<!-- <componentslot></componentslot> -->
 	</div>
 
 </template>
@@ -24,7 +28,13 @@ export default {
 		}
 	},
 	components:{
-		'socialcomponent':Social
+		'socialcomponent':Social,
+		// 'componentslot':{
+		// 	data:function(){
+		// 		return {};
+		// 	},
+		// 	template:'sss<slot>slot in side</slot>'
+		// }
 	},
 	created: function(){
 		eventbus.$on('doshareEvent',function(event){

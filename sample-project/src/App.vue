@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<thongbao></thongbao>			
+		<thongbao><div class="label label-info">content inner text none slot</div>	</thongbao>			
 		<component-whatwedo></component-whatwedo>
 	</div>
 </template>
