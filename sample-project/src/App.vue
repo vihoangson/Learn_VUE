@@ -1,6 +1,11 @@
 <template>
 	<div id="app">
-		<thongbao><div class="label label-info">content inner text none slot</div>	</thongbao>			
+		<thongbao>
+			<div slot='top' class="label label-info">top slot name</div>
+			<div slot='middle' class="label label-info">middle slot name</div>
+			<div slot='bottom' class="label label-info">bottom slot name</div>
+			ádfsdf
+		</thongbao>			
 		<component-whatwedo></component-whatwedo>
 	</div>
 </template>
