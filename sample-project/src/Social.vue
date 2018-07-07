@@ -1,25 +1,29 @@
 <template>
 	<div>
-		<button class='btn btn-default' @click='share'>Share Facebook</button>
+		<button class='btn btn-default' @click='share("facebook")'>Share Facebook</button>
+		<button class='btn btn-default' @click='share("twitter")'>Share Twitter</button>
+		<div>msg: {{article.shares}}</div>
 	</div>
 
 </template>
 <script>
-	import {eventbus} from './main';
+import {eventbus} from './main';
 
-	export default{
-		methods:{
-			share:function(){
+export default{
+	props:['article'],
+	methods:{
+		share:function(method){
 
-				eventbus.$emit('doshareEvent',{					
-					media:"facebooks "
-				});
+			eventbus.$emit('doshareEvent',{					
+				articless:this.article
+			});
 
-				this.$emit('shareEvent',{
-					media:"facebook"
-				});
-			}
+
+			this.$emit('shareEvent',function(method){
+				media:method
+			});
 		}
-
 	}
+
+}
 </script>

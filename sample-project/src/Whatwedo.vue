@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1>{{author_data.firstname}}</h1>
-		<component-author :varauthor='son'></component-author>
+		<component-author :varauthor='author_data'></component-author>
 		
 <!-- Services section -->
 	<section id="what-we-do">
