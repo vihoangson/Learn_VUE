@@ -29,10 +29,10 @@ export default{
 	data() {
 		return {
 			history: [
-				{
-					tag: 'appInbox',
-					title: 'Inbox',
-				}
+			{
+				tag: 'appInbox',
+				title: 'Inbox',
+			}
 			]
 		};
 	},
