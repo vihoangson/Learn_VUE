@@ -70,20 +70,20 @@
 		</div>
 		<ul class="inbox-nav inbox-divider">
 			<li :class='{active:activeView == "appInbox"}'>
-				<a href="#"  @click.prevent='currentView("appInbox", "Inbox")'><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">2</span></a>
+				<a href="#"  @click.prevent='currentView("appInbox", "Inbox")'><i class="fa fa-inbox"></i> Inbox <span class="label label-warning  pull-right">{{numberMailInbox}}</span></a>
 
 			</li>
 			<li :class='{active:activeView == "appSent"}'>
-				<a href="#"  @click.prevent='currentView("appSent", "Sent mail")'><i class="fa fa-envelope-o"></i> Sent Mail</a>
+				<a href="#"  @click.prevent='currentView("appSent", "Sent mail")'><i class="fa fa-envelope-o"></i> Sent Mail<span class="label label-danger pull-right">{{numberMailSend}}</span></a>
 			</li>
 			<li :class='{active:activeView == "appImportant"}'>
-				<a href="#"  @click.prevent='currentView("appImportant", "Important")'><i class="fa fa-bookmark-o"></i> Important</a>
+				<a href="#"  @click.prevent='currentView("appImportant", "Important")'><i class="fa fa-bookmark-o"></i> Important<span class="label label-primary  pull-right">{{numberMailImportant}}</span></a>
 			</li>
 			<li :class='{active:activeView == "appViewmessage"}'>
-				<a href="#"  @click.prevent='currentView("appViewmessage", "View message")'><i class=" fa fa-external-link"></i> Drafts <span class="label label-info pull-right">30</span></a>
+				<a href="#"  @click.prevent='currentView("appViewmessage", "View message")'><i class=" fa fa-external-link"></i> Drafts <span class="label label-info pull-right">{{numberMailViewmessage}}</span></a>
 			</li>
 			<li :class='{active:activeView == "appTrash"}'>
-				<a href="#"  @click.prevent='currentView("appTrash", "Trash")'><i class=" fa fa-trash-o"></i> Trash</a>
+				<a href="#"  @click.prevent='currentView("appTrash", "Trash")'><i class=" fa fa-trash-o"></i> Trash<span class="label label-success pull-right">{{numberMailTrash}}</span></a>
 			</li>
 		</ul>
 	</aside>			
@@ -93,6 +93,12 @@
 import { eventBus } from './main';
 
 export default{
+	props:{
+		message:{
+			type:Array,
+			required:true
+		}
+	},
 	created:function(){
 		eventBus.$on('changeView',(data)=>{
 			this.activeView = data.tag;
@@ -110,6 +116,34 @@ export default{
 				title:title
 			})
 		}
+	},
+	computed:{
+		numberMailInbox: function(){
+			return this.message.filter(function(mess){
+				return (mess.type == "outgoing" && !mess.isDeleted);
+			}).length;
+		},
+
+		numberMailSend: function(){
+			return this.message.filter(function(mess){
+				return (mess.type == "outgoing" && !mess.isDeleted);
+			}).length;
+		},
+		numberMailImportant: function(){
+			return this.message.filter(function(mess){
+				return (mess.isImportant == true  && !mess.isDeleted);
+			}).length;
+		},
+		numberMailViewmessage: function(){
+			return this.message.filter(function(mess){
+				return (mess.isDeleted == false);
+			}).length;
+		},
+		numberMailTrash: function(){
+			return this.message.filter(function(mess){
+				return ( mess.isDeleted == true );
+			}).length;
+		},
 	}
 }
 </script>
