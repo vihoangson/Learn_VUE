@@ -10,7 +10,7 @@
 			</form>
 		</div>
 		<div class="inbox-body">
-			<keep-alive><component :is='currentView.tag'></component></keep-alive>
+			<keep-alive><component :is='currentView.tag' :data='currentView.data'></component></keep-alive>
 		</div>
 	</aside>
 	
@@ -26,12 +26,21 @@ import Inbox from './Inbox.vue';
 import Sent from './Sent.vue';
 
 export default{
+	props:{
+		message:{
+			type:Array,
+			required:true
+		}
+	},
 	data() {
 		return {
 			history: [
 			{
 				tag: 'appInbox',
 				title: 'Inbox',
+				data: {
+							messages: null
+						}
 			}
 			]
 		};
@@ -40,7 +49,8 @@ export default{
 		eventBus.$on('changeView',(data) =>{
 			let temp =[{
 				tag: data.tag,
-				title: data.title
+				title: data.title,
+				data: data.data || {}
 			}];			
 
 			this.history = temp.concat(this.history.splice(0));			
@@ -51,7 +61,9 @@ export default{
 
 	computed:{
 		currentView(){ 
-			return this.history[0];
+				let current = this.history[0];
+				current.data.messages = this.messages;
+				return current;
 		}
 	},
 	components:{

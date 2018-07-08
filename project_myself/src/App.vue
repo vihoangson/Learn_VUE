@@ -2,7 +2,7 @@
 	<div class="container">
    <div class="mail-box">
     <app-sidebar :message='message'></app-sidebar>
-     <app-content></app-content>
+     <app-content :message='message'></app-content>
    </div>
  </div>
 </template>
