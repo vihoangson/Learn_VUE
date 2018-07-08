@@ -1,10 +1,10 @@
 <template>
 	<div class="container">
-	    <div class="mail-box">
-	        <app-sidebar></app-sidebar>
-	        <app-content></app-content>
-	    </div>
-    </div>
+   <div class="mail-box">
+     <app-sidebar></app-sidebar>
+     <app-content></app-content>
+   </div>
+ </div>
 </template>
 
 <script>
@@ -12,11 +12,17 @@
 
 import Sidebar from './Sidebar.vue';
 import Content from './Content.vue';
+import message from './data/message';
 
-    export default {
-   		components:{
-   			'app-sidebar' : Sidebar,
-   			'app-content' : Content
-   		}
+export default {
+  data(){
+    return {
+      message:message
     }
+  },
+  components:{
+    'app-sidebar' : Sidebar,
+    'app-content' : Content
+  }
+}
 </script>
