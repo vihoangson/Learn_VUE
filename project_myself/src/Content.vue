@@ -33,14 +33,15 @@ export default{
 		}
 	},
 	data() {
+
 		return {
 			history: [
 			{
 				tag: 'appInbox',
 				title: 'Inbox',
 				data: {
-							messages: null
-						}
+					messages: null
+				}
 			}
 			]
 		};
@@ -50,7 +51,7 @@ export default{
 			let temp =[{
 				tag: data.tag,
 				title: data.title,
-				data: data.data || {}
+					data: data.data || {}
 			}];			
 
 			this.history = temp.concat(this.history.splice(0));			
@@ -61,9 +62,13 @@ export default{
 
 	computed:{
 		currentView(){ 
-				let current = this.history[0];
-				current.data.messages = this.messages;
-				return current;
+			console.log('message123');
+			console.log(this.message);
+			let current = this.history[0];
+			current.data.messages = this.message;
+				console.log('123');
+			console.log(this.messages);
+			return current;
 		}
 	},
 	components:{

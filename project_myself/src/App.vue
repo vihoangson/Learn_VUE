@@ -2,9 +2,9 @@
 	<div class="container">
    <div class="mail-box">
     <app-sidebar :message='message'></app-sidebar>
-     <app-content :message='message'></app-content>
-   </div>
- </div>
+    <app-content :message='message'></app-content>
+  </div>
+</div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ import Content from './Content.vue';
 import message from './data/message';
 
 export default {
-  data(){
+  data(){    
     return {
       message:message
     }
