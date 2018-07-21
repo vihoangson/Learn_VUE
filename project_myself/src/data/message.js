@@ -53,7 +53,52 @@ export default[
 	isImportant: false,
 	isDeleted: false,
 	isRead: false,
-	type:'incoming',
+	type:'outgoing',
+	//date: moment().subtract(10,minutes),
+	from: {
+		name : 'hoangson',
+		email: 'vihoangson@gmail.com'
+	},
+	attachment:[]
+},
+{
+
+	subject: "how did we d4",
+	content: ` Hello `,
+	isImportant: false,
+	isDeleted: false,
+	isRead: false,
+	type:'outgoing',
+	//date: moment().subtract(10,minutes),
+	from: {
+		name : 'hoangson',
+		email: 'vihoangson@gmail.com'
+	},
+	attachment:[]
+},
+{
+
+	subject: "how did we d4",
+	content: ` Hello `,
+	isImportant: false,
+	isDeleted: false,
+	isRead: false,
+	type:'outgoing',
+	//date: moment().subtract(10,minutes),
+	from: {
+		name : 'hoangson',
+		email: 'vihoangson@gmail.com'
+	},
+	attachment:['file.png']
+},
+{
+
+	subject: "how did we d4",
+	content: ` Hello `,
+	isImportant: false,
+	isDeleted: false,
+	isRead: false,
+	type:'outgoing',
 	//date: moment().subtract(10,minutes),
 	from: {
 		name : 'hoangson',

@@ -14,8 +14,7 @@ export default{
 		incomingMessage(){
 			console.log(this.data);
 			return this.data.messages.filter(function(messag){
-				return true;
-				return (messag.type=='incoming' && messag.isDeleted);
+				return (messag.type=='incoming' && !messag.isDeleted);
 			});
 		}
 	},
